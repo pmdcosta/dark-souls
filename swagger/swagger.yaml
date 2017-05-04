@@ -1,0 +1,86 @@
+consumes:
+- application/json
+- application/xml
+- application/gob
+- application/x-gob
+host: localhost:8080
+info:
+  description: Deamon to backup Dark Souls saves.
+  title: Backup Dark Souls saves
+  version: ""
+paths:
+  /load:
+    get:
+      description: Loads the last saved file.
+      operationId: saves#load
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+      schemes:
+      - http
+      summary: load saves
+      tags:
+      - saves
+  /save:
+    get:
+      description: Backups the current save file.
+      operationId: saves#save
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+      schemes:
+      - http
+      summary: save saves
+      tags:
+      - saves
+  /start:
+    get:
+      description: Starts automatically saving the game every few seconds.
+      operationId: saves#start
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+      schemes:
+      - http
+      summary: start saves
+      tags:
+      - saves
+  /stop:
+    get:
+      description: Stops automatically saving the game.
+      operationId: saves#stop
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+      schemes:
+      - http
+      summary: stop saves
+      tags:
+      - saves
+  /ui:
+    get:
+      operationId: public#/ui
+      responses:
+        "200":
+          description: File downloaded
+          schema:
+            type: file
+      schemes:
+      - http
+      summary: Download public/index.html
+produces:
+- application/json
+- application/xml
+- application/gob
+- application/x-gob
+schemes:
+- http
+swagger: "2.0"
